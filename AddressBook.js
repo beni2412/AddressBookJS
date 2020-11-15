@@ -84,14 +84,18 @@ class Contact{
         else throw "Invalid email";
     }
     toString(){
-        return "First Name : "+this.firstName+" \nLast Name : "+this.lastName+" \nAddress : "+this.address+" \nCity : "+this.city+" \nState : "+this.state+" \nZIP : "+this.zip+" \nPhone number : "+this.phone+" \nEmail : "+this.email;
+        return "First Name : "+this.firstName+" \nLast Name : "+this.lastName+" \nAddress : "+this.address+" \nCity : "+this.city+" \nState : "+this.state+" \nZIP : "+this.zip+" \nPhone number : "+this.phone+" \nEmail : "+this.email+"\n------------\n";
     }
 }
 
-
+let addressBook = new Array();
 try{
     let contact1 = new Contact("Hardaman","Beni","Sec70","Mohali","Punjab",160071,919066681818,"daman@gmial.com");
-console.log(contact1.toString()); 
+    addressBook.push(contact1);
+    let contact2 = new Contact("Aman","Singh","Sec72","Mohali","Punjab",160071,919066654818,"aman@gmial.com");
+    addressBook.push(contact2);
+
     }catch(e){
         console.error(e);
     } 
+    console.log("Contacts in address book are : \n"+addressBook); 
