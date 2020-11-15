@@ -94,6 +94,14 @@ function contactExists(fName, lName){
     return addressBook.some(u => u.firstName == fName && u.lastName == lName);
 }
 
+function deleteContact(fName, lName){
+    if(contactExists(fName, lName)){
+    addressBook.pop(contactExists(fName,lName))
+    }else{
+        console.log("Contact Does Not Exist");
+    }
+}
+
 function editContact(fName, lName, property, value){
     if(contactExists(fName, lName)){
     switch(property){
@@ -132,7 +140,12 @@ try{
     }catch(e){
         console.error(e);
     } 
-    console.log("Contacts in address book are : \n"+addressBook); 
+console.log("Contacts in address book are : \n"+addressBook); 
   
 editContact("Hardaman", "Beni", "address", "Sec66");
 console.log(addressBook);
+
+deleteContact("Aman","Singh");
+console.log("After deleting - ");
+console.log(addressBook);
+
