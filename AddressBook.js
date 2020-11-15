@@ -89,6 +89,40 @@ class Contact{
 }
 
 let addressBook = new Array();
+
+function contactExists(fName, lName){
+    return addressBook.some(u => u.firstName == fName && u.lastName == lName);
+}
+
+function editContact(fName, lName, property, value){
+    if(contactExists(fName, lName)){
+    switch(property){
+        case "address":
+            addressBook.find((contact) => contact.firstName == fName).address = value;
+            break;
+        case "city":
+            addressBook.find((contact) => contact.firstName == fName).city = value;
+            break;
+        case "state":
+            addressBook.find((contact) => contact.firstName == fName).state = value;
+            break;
+        case "zip":
+            addressBook.find((contact) => contact.firstName == fName).zip = value;
+            break;
+        case "phone":
+            addressBook.find((contact) => contact.firstName == fName).phoneNo = value;
+            break;
+        case "email":
+            addressBook.find((contact) => contact.firstName == fName).email = value;
+            break;
+        default:
+            console.log("Enter valid property");
+    }
+  }else{
+      console.log("Contact Does Not Exist");
+  }
+}
+
 try{
     let contact1 = new Contact("Hardaman","Beni","Sec70","Mohali","Punjab",160071,919066681818,"daman@gmial.com");
     addressBook.push(contact1);
@@ -99,3 +133,6 @@ try{
         console.error(e);
     } 
     console.log("Contacts in address book are : \n"+addressBook); 
+  
+editContact("Hardaman", "Beni", "address", "Sec66");
+console.log(addressBook);
