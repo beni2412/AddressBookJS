@@ -140,12 +140,16 @@ try{
     }catch(e){
         console.error(e);
     } 
+
+const reducer = (count) => {return ++count}
 console.log("Contacts in address book are : \n"+addressBook); 
   
 editContact("Hardaman", "Beni", "address", "Sec66");
 console.log(addressBook);
+console.log("No of contacts : "+ addressBook.reduce(reducer, 0));
 
 deleteContact("Aman","Singh");
 console.log("After deleting - ");
 console.log(addressBook);
+console.log("No of contacts : "+ addressBook.reduce(reducer, 0));
 
