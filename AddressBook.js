@@ -176,5 +176,8 @@ try{
     console.error(e);
 }
 
-console.log("Contacts in Mohali:\n"+searchByCity("Mohali"));
-console.log("contacts in punjab:\n"+searchByState("Punjab"));
+//console.log("Contacts in Mohali:\n"+searchByCity("Mohali"));
+//console.log("contacts in punjab:\n"+searchByState("Punjab"));
+
+console.log("No of contacts in mohali : "+ searchByCity("Mohali").reduce(reducer, 0));
+console.log("No of contacts in punjab : "+ searchByState("Punjab").reduce(reducer, 0));
