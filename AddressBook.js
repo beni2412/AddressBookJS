@@ -94,6 +94,14 @@ function contactExists(fName, lName){
     return addressBook.some(u => u.firstName == fName && u.lastName == lName);
 }
 
+function addContact(newContact){
+    if(contactExists(newContact.firstName, newContact.lastName)){
+        throw "Contact already exists";
+    }else{
+        addressBookArr.push(newContact);
+    }
+ }
+
 function deleteContact(fName, lName){
     if(contactExists(fName, lName)){
     addressBook.pop(contactExists(fName,lName))
@@ -101,6 +109,7 @@ function deleteContact(fName, lName){
         console.log("Contact Does Not Exist");
     }
 }
+
 
 function editContact(fName, lName, property, value){
     if(contactExists(fName, lName)){
@@ -130,11 +139,11 @@ function editContact(fName, lName, property, value){
       console.log("Contact Does Not Exist");
   }
 }
-
-try{
-    let contact1 = new Contact("Hardaman","Beni","Sec70","Mohali","Punjab",160071,919066681818,"daman@gmial.com");
-    addressBook.push(contact1);
+let contact1 = new Contact("Hardaman","Beni","Sec70","Mohali","Punjab",160071,919066681818,"daman@gmial.com");
+    
     let contact2 = new Contact("Aman","Singh","Sec72","Mohali","Punjab",160071,919066654818,"aman@gmial.com");
+try{
+    addressBook.push(contact1);
     addressBook.push(contact2);
 
     }catch(e){
@@ -153,3 +162,8 @@ console.log("After deleting - ");
 console.log(addressBook);
 console.log("No of contacts : "+ addressBook.reduce(reducer, 0));
 
+try{
+    addContact(contact1);
+}catch(e){
+    console.error(e);
+}
