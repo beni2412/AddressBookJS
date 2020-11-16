@@ -110,6 +110,14 @@ function deleteContact(fName, lName){
     }
 }
 
+function searchByCity(city) {
+    return addressBook.filter((contact) => contact.city == city);
+  }
+
+function searchByState(state) {
+    return addressBook.filter((contact) => contact.state == state);
+  }
+
 
 function editContact(fName, lName, property, value){
     if(contactExists(fName, lName)){
@@ -157,13 +165,16 @@ editContact("Hardaman", "Beni", "address", "Sec66");
 console.log(addressBook);
 console.log("No of contacts : "+ addressBook.reduce(reducer, 0));
 
-deleteContact("Aman","Singh");
-console.log("After deleting - ");
-console.log(addressBook);
-console.log("No of contacts : "+ addressBook.reduce(reducer, 0));
+//deleteContact("Aman","Singh");
+//console.log("After deleting - ");
+//console.log(addressBook);
+//console.log("No of contacts : "+ addressBook.reduce(reducer, 0));
 
 try{
     addContact(contact1);
 }catch(e){
     console.error(e);
 }
+
+console.log("Contacts in Mohali:\n"+searchByCity("Mohali"));
+console.log("contacts in punjab:\n"+searchByState("Punjab"));
