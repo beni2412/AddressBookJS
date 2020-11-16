@@ -118,6 +118,20 @@ function searchByState(state) {
     return addressBook.filter((contact) => contact.state == state);
   }
 
+  function sortByCity(){
+            addressBook.sort((person1, person2) => (person1.city).localeCompare(person2.city));
+            return addressBook;
+  }
+
+  function sortByState(){
+    addressBook.sort((person1, person2) => (person1.state).localeCompare(person2.state));
+    return addressBook;
+}
+
+function sortByZip(){
+    addressBook.sort((person1, person2) => (person1.zip).localeCompare(person2.zip));
+    return addressBook;
+}
 
 function editContact(fName, lName, property, value){
     if(contactExists(fName, lName)){
@@ -147,9 +161,9 @@ function editContact(fName, lName, property, value){
       console.log("Contact Does Not Exist");
   }
 }
-let contact1 = new Contact("Hardaman","Beni","Sec70","Mohali","Punjab",160071,919066681818,"daman@gmial.com");
+let contact1 = new Contact("Hardaman","Beni","Sec70","Chandigarh","Punjab",160071,919066681818,"daman@gmial.com");
     
-    let contact2 = new Contact("Aman","Singh","Sec72","Mohali","Punjab",160071,919066654818,"aman@gmial.com");
+    let contact2 = new Contact("Aman","Singh","Sec72","Mohali","Haryana",160072,919066654818,"aman@gmial.com");
 try{
     addressBook.push(contact1);
     addressBook.push(contact2);
@@ -176,11 +190,17 @@ try{
     console.error(e);
 }
 
-//console.log("Contacts in Mohali:\n"+searchByCity("Mohali"));
-//console.log("contacts in punjab:\n"+searchByState("Punjab"));
+console.log("Contacts in Mohali:\n"+searchByCity("Mohali"));
+console.log("contacts in punjab:\n"+searchByState("Punjab"));
 
 console.log("No of contacts in mohali : "+ searchByCity("Mohali").reduce(reducer, 0));
 console.log("No of contacts in punjab : "+ searchByState("Punjab").reduce(reducer, 0));
 
 addressBook.sort((person1, person2) => (person1.firstName).localeCompare(person2.firstName));
-console.log("Sorted list: \n"+addressBook); 
+console.log("Sorted list by name: \n"+addressBook); 
+
+console.log("Sorted list by city: \n"+sortByCity()); 
+
+console.log("Sorted list by state: \n"+sortByState());
+
+console.log("Sorted list by zip: \n"+sortByZip()); 
