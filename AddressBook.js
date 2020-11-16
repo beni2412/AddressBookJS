@@ -181,3 +181,6 @@ try{
 
 console.log("No of contacts in mohali : "+ searchByCity("Mohali").reduce(reducer, 0));
 console.log("No of contacts in punjab : "+ searchByState("Punjab").reduce(reducer, 0));
+
+addressBook.sort((person1, person2) => (person1.firstName).localeCompare(person2.firstName));
+console.log("Sorted list: \n"+addressBook); 
